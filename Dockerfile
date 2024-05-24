@@ -56,5 +56,5 @@ RUN set -ex; \
   true
 
 # finished building
-CMD ["renovate"]
 USER 1000
+CMD ["renovate"]
