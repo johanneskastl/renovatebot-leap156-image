@@ -55,6 +55,10 @@ RUN set -ex; \
   node -e "new require('re2')('.*').exec('test')"; \
   true
 
+LABEL name="renovatebot-leap156-image"
+LABEL org.opencontainers.image.source="https://github.com/johanneskastl/renovatebot-leap156-image" \
+  org.opencontainers.image.url="https://github.com/johanneskastl/renovatebot-leap156-image" \
+  org.opencontainers.image.licenses="AGPL-3.0-only"
 LABEL \
   org.opencontainers.image.version="${RENOVATE_VERSION}" \
   org.label-schema.version="${RENOVATE_VERSION}"
