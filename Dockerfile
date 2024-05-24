@@ -55,6 +55,10 @@ RUN set -ex; \
   node -e "new require('re2')('.*').exec('test')"; \
   true
 
+LABEL \
+  org.opencontainers.image.version="${RENOVATE_VERSION}" \
+  org.label-schema.version="${RENOVATE_VERSION}"
+
 # finished building
 USER 1000
 CMD ["renovate"]
