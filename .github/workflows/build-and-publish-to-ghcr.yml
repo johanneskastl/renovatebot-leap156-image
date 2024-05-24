@@ -56,6 +56,9 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          labels: |
+            org.opencontainers.image.licenses="AGPL-3.0-only"
+            org.opencontainers.image.version=${{ steps.renovate_version.outputs.release }}
       # This step uses the `docker/build-push-action` action to build the
       # image, based on your repository's `Dockerfile`. If the build succeeds,
       # it pushes the image to GitHub Packages.
@@ -71,7 +74,9 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: |
+            ${{ steps.meta.outputs.tags }}
+            ghcr.io/johanneskastl/renovatebot-leap156-image:${{ steps.renovate_version.outputs.release }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             RENOVATE_VERSION=${{ steps.renovate_version.outputs.release }}
