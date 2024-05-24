@@ -3,6 +3,9 @@ name: Create and publish a container image
 
 # only run this manually
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 # Defines two custom environment variables for the workflow. These are used for
