@@ -1,4 +1,4 @@
-FROM registry.opensuse.org/opensuse/leap:15.6
+FROM registry.opensuse.org/home/ojkastl_buildservice/containers/15.6/containerfile/ojkastl_buildservice/opensuse-leap-dumb-init:15.6
 
 ARG RENOVATE_VERSION=37.374.3
 
