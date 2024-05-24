@@ -21,7 +21,7 @@ RUN zypper ref && \
 # install helpers in /usr/local/bin/
 #
 WORKDIR /usr/local/bin/
-RUN echo ${RENOVATE_VERSION} && curl -L --silent -o renovate https://raw.githubusercontent.com/renovatebot/renovate/${RENOVATE_VERSION}/tools/docker/bin/renovate && \
+RUN curl -L --silent -o renovate https://raw.githubusercontent.com/renovatebot/renovate/${RENOVATE_VERSION}/tools/docker/bin/renovate && \
     curl -L --silent -o renovate-config-validator https://raw.githubusercontent.com/renovatebot/renovate/${RENOVATE_VERSION}/tools/docker/bin/renovate-config-validator && \
     curl -L --silent -o docker-entrypoint.sh https://raw.githubusercontent.com/renovatebot/renovate/${RENOVATE_VERSION}/tools/docker/bin/docker-entrypoint.sh && \
     chmod +x renovate docker-entrypoint.sh renovate-config-validator
