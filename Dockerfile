@@ -31,6 +31,7 @@ RUN echo ${RENOVATE_VERSION} && curl -L --silent -o renovate https://raw.githubu
 #
 WORKDIR /usr/local/renovate/
 RUN npm install renovate && \
+    rm -rf /root/.npm/ && \
     ln -s /usr/local/renovate/node_modules/renovate/dist /usr/local/renovate/
 
 #
