@@ -74,4 +74,4 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
-            RENOVATE_VERSION=37.377.0
+            RENOVATE_VERSION=${{ steps.renovate_version.outputs.release }}
