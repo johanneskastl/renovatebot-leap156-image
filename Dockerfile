@@ -25,6 +25,7 @@ WORKDIR /usr/local/bin/
 RUN curl -L --silent -o renovate https://raw.githubusercontent.com/renovatebot/renovate/${RENOVATE_VERSION}/tools/docker/bin/renovate && \
     curl -L --silent -o renovate-config-validator https://raw.githubusercontent.com/renovatebot/renovate/${RENOVATE_VERSION}/tools/docker/bin/renovate-config-validator && \
     curl -L --silent -o docker-entrypoint.sh https://raw.githubusercontent.com/renovatebot/renovate/${RENOVATE_VERSION}/tools/docker/bin/docker-entrypoint.sh && \
+    sed -i 's#/usr/local/renovate/node#node#' renovate docker-entrypoint.sh renovate-config-validator && \
     chmod +x renovate docker-entrypoint.sh renovate-config-validator
 
 #
