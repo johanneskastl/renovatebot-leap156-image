@@ -12,7 +12,8 @@ RUN mkdir -p /opt/ && \
      mkdir -p /opt/containerbase/tools/renovate && \
      mkdir -p /opt/containerbase/versions/
 
-RUN zypper ref && \
+RUN set -euo pipefail && \
+     zypper ref && \
      zypper -n install --no-recommends bash curl gawk coreutils sed nodejs20 npm20 git-core findutils && \
      zypper -n clean && \
      rm -rf /var/log/{lastlog,tallylog,zypper.log,zypp/history,YaST2}
